@@ -56,6 +56,7 @@ export default function Detalhes({ route, navigation: { navigate, goBack } }) {
               <Text
                 style={{
                   backgroundColor:"#e5e5e5",
+                  borderRadius:10,
                   padding: 5,
                   color: "#111",
                   fontSize: 20,
