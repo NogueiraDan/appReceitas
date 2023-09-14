@@ -41,18 +41,19 @@ export default function Letra({ route }) {
   const RenderItem = ({ item }) => (
     <View>
       <TouchableOpacity onPress={()=>handleSendItem(item)}>
-        <Text>{item.nome}</Text>
+        <Text style={styles.recipes} >{item.nome}</Text>
       </TouchableOpacity>
     </View>
   );
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Receitas para a letra: {letter}</Text>
-      <View>
+      <Text style={styles.title}>Receitas para a letra: {letter}</Text>
+      <View style={styles.recipesList}>
         {
           recipesByLetter && (
             <FlatList
+         
             data={recipesByLetter}
             renderItem={({ item }) => <RenderItem item={item} />}
             keyExtractor={(item) => item._id.$oid}
@@ -77,4 +78,21 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 10,
   },
+  title:{
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  recipesList:{
+    paddingBottom: 50
+  },
+
+  recipes:{
+    backgroundColor:"#fff",
+    margin: 10,
+    padding: 10,
+    fontSize: 18,
+    fontWeight:"400",
+    borderRadius: 10
+  }
+
 });

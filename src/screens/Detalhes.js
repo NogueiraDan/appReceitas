@@ -50,11 +50,13 @@ export default function Detalhes({ route, navigation: { navigate, goBack } }) {
         </View>
 
 
-        <View>
+        <View >
           {data?.secao?.map((secao, index) => (
             <View key={index}>
               <Text
                 style={{
+                  backgroundColor:"#e5e5e5",
+                  padding: 5,
                   color: "#111",
                   fontSize: 20,
                   fontWeight: 500,
@@ -82,7 +84,7 @@ export default function Detalhes({ route, navigation: { navigate, goBack } }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "#f3f3f3",
     paddingTop: 40,
   },
 });
