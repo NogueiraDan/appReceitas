@@ -198,7 +198,7 @@ export default function Home() {
               source={require("../../assets/icon_recipe.png")}
               style={{ width: 100, height: 100, borderRadius: 10 }}
             />
-            <View style={{ justifyContent: "space-between", width: "100%" }}>
+            <View style={{ justifyContent: "space-between", width: "100%", paddingStart:10 }}>
               <Text style={{ fontSize: 18 }}>{limitString(data.nome, 25)}</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <AntDesign name="star" size={24} color="gold" />
