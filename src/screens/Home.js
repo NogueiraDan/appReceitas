@@ -105,7 +105,7 @@ export default function Home() {
           decelerationRate={"fast"}
           pagingEnabled
           snapToInterval={290}
-          style={{ marginTop: 4, marginBottom: 20 }}
+          style={{ marginTop: 4, marginBottom: 20, marginEnd: 50 }}
         >
           {data.map((data, index) => (
             <TouchableOpacity
