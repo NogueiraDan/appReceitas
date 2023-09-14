@@ -48,13 +48,23 @@ export default function Letra({ route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Você clicou na letra: {letter}</Text>
+      <Text>Receitas para a letra: {letter}</Text>
       <View>
-        <FlatList
-          data={recipesByLetter}
-          renderItem={({ item }) => <RenderItem item={item} />}
-          keyExtractor={(item) => item._id.$oid}
-        />
+        {
+          recipesByLetter && (
+            <FlatList
+            data={recipesByLetter}
+            renderItem={({ item }) => <RenderItem item={item} />}
+            keyExtractor={(item) => item._id.$oid}
+          />
+          )
+        }
+        {/* {
+          !recipesByLetter && (
+            <Text>Não foram encontradas receitas para letra {letter} ☹️​</Text>
+          )
+        } */}
+       
       </View>
     </SafeAreaView>
   );

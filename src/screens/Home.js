@@ -11,10 +11,7 @@ import {
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
-import {
-  AntDesign,
-  FontAwesome,
-} from "@expo/vector-icons";
+import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import CategoryList from "../../components/CategoryList";
 
 export default function Home() {
@@ -22,8 +19,7 @@ export default function Home() {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("")
- 
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -63,14 +59,21 @@ export default function Home() {
   }
 
   const handleSearch = () => {
-    if(search.trim("")===""){
-      alert("Por favor digite algo!")
-      return
+    if (search.trim("") === "") {
+      alert("Por favor digite algo!");
+      return;
     }
-    navigation.navigate('Busca', { searchQuery: search });
+    navigation.navigate("Busca", { searchQuery: search });
     setSearch("");
   };
 
+  const limitString = (str, maxLength) => {
+    if (str.length <= maxLength) {
+      return str;
+    } else {
+      return str.slice(0, maxLength) + "...";
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -83,7 +86,7 @@ export default function Home() {
             value={search}
             onChangeText={setSearch}
           />
-          <TouchableOpacity style={styles.searchIcon} onPress={handleSearch}> 
+          <TouchableOpacity style={styles.searchIcon} onPress={handleSearch}>
             <FontAwesome name="search" size={26} color="black" />
           </TouchableOpacity>
         </View>
@@ -92,15 +95,8 @@ export default function Home() {
       <ScrollView style={styles.mainScroll}>
         {/* Vitrine mais acessados */}
         <View style={styles.moreAccessed}>
-          <Text style={{ fontSize: 20, marginTop: 8, marginLeft:8 }}>Algumas de nossas receitas</Text>
-          <Text
-            style={{
-              fontSize: 16,
-              marginTop: 8,
-              textDecorationLine: "underline",
-            }}
-          >
-            Ver mais
+          <Text style={{ fontSize: 20, marginTop: 8, marginLeft: 8 }}>
+            Algumas de nossas receitas
           </Text>
         </View>
         <ScrollView
@@ -171,6 +167,7 @@ export default function Home() {
           renderItem={({ item }) => <CategoryList data={item} />}
           horizontal
         />
+
         <View
           style={{
             flexDirection: "row",
@@ -192,6 +189,7 @@ export default function Home() {
               marginBottom: 10,
               borderRadius: 10,
               flexDirection: "row",
+              width: "84%",
             }}
             onPress={() => navigation.navigate("Detalhes", { data: data })}
           >
@@ -199,8 +197,8 @@ export default function Home() {
               source={require("../../assets/icon_recipe.png")}
               style={{ width: 100, height: 100, borderRadius: 10 }}
             />
-            <View style={{ marginHorizontal: 5, justifyContent: "space-between", width:"100%" }}>
-              <Text style={{ fontSize: 18 , flexWrap:"wrap"}}>{data.nome}</Text>
+            <View style={{ justifyContent: "space-between", width: "100%" }}>
+              <Text style={{ fontSize: 18 }}>{limitString(data.nome, 25)}</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <AntDesign name="star" size={24} color="gold" />
                 <Text style={{ color: "#111", fontSize: 14, fontWeight: 500 }}>
