@@ -33,7 +33,7 @@ export default function Busca({ route }) {
   const RenderItem = ({ item }) => (
     <View>
       <TouchableOpacity onPress={()=>handleSendItem(item)}>
-        <Text>{item.nome}</Text>
+        <Text style={styles.recipes} >{item.nome}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -41,8 +41,8 @@ export default function Busca({ route }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Você pesquisou por: {searchQuery}</Text>
-      <View>
+      <Text style={styles.title}>Você pesquisou por: {searchQuery}</Text>
+      <View style={styles.recipesList}>
         <FlatList
           data={searchedRecipes}
           renderItem={({ item }) => <RenderItem item={item} />}
@@ -60,4 +60,20 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 10
   },
+  title:{
+    fontSize: 20,
+    fontWeight: "bold"
+  },
+  recipesList:{
+    paddingBottom: 50
+  },
+
+  recipes:{
+    backgroundColor:"#fff",
+    margin: 10,
+    padding: 10,
+    fontSize: 18,
+    fontWeight:"400",
+    borderRadius: 10
+  }
 });

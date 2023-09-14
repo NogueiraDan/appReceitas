@@ -53,7 +53,6 @@ export default function Letra({ route }) {
         {
           recipesByLetter && (
             <FlatList
-         
             data={recipesByLetter}
             renderItem={({ item }) => <RenderItem item={item} />}
             keyExtractor={(item) => item._id.$oid}
