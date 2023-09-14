@@ -165,6 +165,7 @@ export default function Home() {
             "Z",
           ]}
           renderItem={({ item }) => <CategoryList data={item} />}
+          style={{marginEnd: 50}}
           horizontal
         />
 
