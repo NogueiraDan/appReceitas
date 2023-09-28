@@ -59,11 +59,7 @@ export default function Letra({ route }) {
           />
           )
         }
-        {/* {
-          !recipesByLetter && (
-            <Text>Não foram encontradas receitas para letra {letter} ☹️​</Text>
-          )
-        } */}
+       
        
       </View>
     </SafeAreaView>
