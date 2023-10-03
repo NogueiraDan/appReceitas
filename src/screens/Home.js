@@ -77,6 +77,8 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
+
+
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Encontre sua receita preferida</Text>
         <View style={styles.searchWrapper}>
@@ -199,7 +201,7 @@ export default function Home() {
               style={{ width: 100, height: 100, borderRadius: 10 }}
             />
             <View style={{ justifyContent: "space-between", width: "100%", paddingStart:10 }}>
-              <Text style={{ fontSize: 18 }}>{limitString(data.nome, 25)}</Text>
+              <Text style={{ fontSize: 18 }}>{limitString(data.nome, 22)}</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <AntDesign name="star" size={24} color="gold" />
                 <Text style={{ color: "#111", fontSize: 14, fontWeight: 500 }}>
@@ -221,8 +223,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   header: {
-    paddingTop: 60,
-    height: 140,
+    paddingTop: 80,
+    height: 180,
     width: "100%",
     paddingStart: 10,
     flexDirection: "column",
@@ -256,7 +258,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#000",
     fontWeight: 500,
-    marginBottom: 20,
   },
   mainScroll: {
     marginTop: 10,
