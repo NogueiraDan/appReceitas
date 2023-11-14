@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon_recipe.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.nogueiradan.myRecipes"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "6a581f52-2d20-4a90-ba66-b71c575928cc"
+      }
     }
   }
 }

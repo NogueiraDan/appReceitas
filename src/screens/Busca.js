@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { Text, SafeAreaView, FlatList, TouchableOpacity, View} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
+import {baseURL} from "../utils/index";
 
 
 export default function Busca({ route }) {
@@ -14,7 +14,7 @@ export default function Busca({ route }) {
   React.useEffect(()=>{
     const fetchData = async ()=>{
       try {
-        const response = await axios.get(`https://api-receitas-lnp4.onrender.com/api/v1/receitas/search?q=${searchQuery}`);
+        const response = await axios.get(`${baseURL}/search?q=${searchQuery}`);
         console.log(response.data);
         setSearchedRecipes(response.data);
 

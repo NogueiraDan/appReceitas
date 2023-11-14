@@ -13,6 +13,7 @@ import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import CategoryList from "../../components/CategoryList";
+import { baseURL, shuffleArray } from "../utils";
 
 export default function Home() {
   const navigation = useNavigation([]);
@@ -24,13 +25,8 @@ export default function Home() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "https://api-receitas-lnp4.onrender.com/api/v1/receitas/"
-        );
-
-        const limitedResults = response.data.slice(0, 10);
-        console.log(limitedResults);
-        setData(limitedResults);
+        const response = await axios.get(`${baseURL}`);
+        setData(shuffleArray(response.data.slice(0, 10)));
         setLoading(false);
       } catch (error) {
         console.log(error);

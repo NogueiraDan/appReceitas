@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
+import { baseURL } from "../utils";
 
 export default function Letra({ route }) {
   const { letter } = route.params;
@@ -19,7 +20,7 @@ export default function Letra({ route }) {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://api-receitas-lnp4.onrender.com/api/v1/receitas/letter/${letter}`
+          `${baseURL}/letter/${letter}`
         );
 
         const limitedResults = response.data.slice(0, 50);
