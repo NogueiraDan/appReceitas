@@ -73,8 +73,6 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-
-
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Encontre sua receita preferida</Text>
         <View style={styles.searchWrapper}>
@@ -163,7 +161,7 @@ export default function Home() {
             "Z",
           ]}
           renderItem={({ item }) => <CategoryList data={item} />}
-          style={{marginEnd: 50}}
+          style={{ marginEnd: 50 }}
           horizontal
         />
 
@@ -196,7 +194,13 @@ export default function Home() {
               source={require("../../assets/icon_recipe.png")}
               style={{ width: 100, height: 100, borderRadius: 10 }}
             />
-            <View style={{ justifyContent: "space-between", width: "100%", paddingStart:10 }}>
+            <View
+              style={{
+                justifyContent: "space-between",
+                width: "100%",
+                paddingStart: 10,
+              }}
+            >
               <Text style={{ fontSize: 18 }}>{limitString(data.nome, 22)}</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
                 <AntDesign name="star" size={24} color="gold" />
@@ -226,14 +230,12 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     justifyContent: "space-between",
     marginBottom: 50,
-    // backgroundColor: "#C12323",
-    // alignItems: "center",
   },
   searchWrapper: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 20,
   },
   searchInput: {
     borderWidth: 1,
@@ -244,7 +246,6 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     marginEnd: 10,
-    // backgroundColor:"red",
     alignItems: "center",
     justifyContent: "center",
     width: "15%",
